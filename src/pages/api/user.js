@@ -2,11 +2,10 @@
 import jwt from 'jsonwebtoken';
 import { ObjectId as BSONObjectId } from 'bson';
 import User from 'models/User';
-import dbConnect from 'utils/dBconnect';
+import dbConnect from 'utils/dbConnect';
 
 export default async function UserHandler(req, res) {
    const { method } = req;
-   const { userName, lat, long, threshold } = req.body;
    const { u: userToken } = req.query;
    let decodedID;
 
@@ -25,7 +24,9 @@ export default async function UserHandler(req, res) {
    switch (method) {
       case 'POST':
          try {
+            const { userName, lat, long, threshold } = JSON.parse(req.body);
             const userNameTaken = await User.exists({ userName });
+
             if (userNameTaken) {
                res.status(409).json({
                   success: false,
@@ -64,6 +65,8 @@ export default async function UserHandler(req, res) {
 
       case 'PUT':
          try {
+            const { lat, long, threshold } = JSON.parse(req.body);
+
             if (decodedID) {
                const targetDoc = await User.findById(decodedID);
 

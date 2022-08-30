@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+   "extends": "next/core-web-vitals",
+   "rules": {
+      "array-bracket-spacing": ["warn", "always"],
+      "object-curly-spacing": ["warn", "always"],
+      "comma-dangle": ["warn", "always-multiline"],
+      "jsx-quotes": ["warn", "prefer-double"],
+      "max-len": ["warn", {
+            "code": 80,
+            "ignoreTemplateLiterals": true,
+            "ignoreUrls": true
+         }
+      ],
+      "arrow-parens": ["warn", "always"],
+      "space-infix-ops": ["warn", { "int32Hint": false }]
+   }
 }

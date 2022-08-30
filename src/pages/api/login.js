@@ -1,8 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import jwt from 'jsonwebtoken';
-import { ObjectId as BSONObjectId } from 'bson';
 import User from 'models/User';
-import dbConnect from 'utils/dBconnect';
+import dbConnect from 'utils/dbConnect';
 
 export default async function LoginHandler(req, res) {
    const { method } = req;
@@ -14,11 +13,11 @@ export default async function LoginHandler(req, res) {
       return res.status(500).json({ success: false });
    }
 
-   switch (req.method) {
+   switch (method) {
       case 'GET':
          try {
-            if (usersDB.length) {
-               const targetDoc = User.findOne({ userName });
+            if (userName) {
+               const targetDoc = await User.findOne({ userName });
 
                if (targetDoc) {
                   const userToken = jwt.sign(
@@ -26,7 +25,10 @@ export default async function LoginHandler(req, res) {
                      process.env.JWT_AUTH_SECRET,
                   );
 
-                  res.status(200).json({ success: true, payload: userToken });
+                  res.status(200).json({
+                     success: true,
+                     payload: userToken,
+                  });
                } else {
                   res.status(404).json({ success: false });
                }
@@ -34,6 +36,7 @@ export default async function LoginHandler(req, res) {
                res.status(400).json({ success: false });
             }
          } catch (error) {
+            console.warn(error);
             res.status(500).json({ success: false });
          }
          break;
