@@ -63,13 +63,18 @@ export default function LoginPage() {
             name="login"
             aria-live="polite"
             aria-busy={userStatus.isLoading}
-            rowSpacing="1.5rem"
+            rowGap={3}
             direction="column"
             alignItems="center"
-            justify="center"
+            justifyContent="center"
             sx={{
                minHeight: `calc(100vh - ${smQuery ? 64 : 56}px)`,
-               pt: 'calc(50vh - 200px)',
+               width: {
+                  xs: 280,
+                  sm: 550,
+                  md: 700,
+               },
+               margin: 'auto',
             }}
          >
             <Grid item xs={12}>
