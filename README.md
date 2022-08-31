@@ -1,12 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aeolian | Air Quality Monitor
+
+Deployed to [aeolian-sai-chai.vercel.app](https://aeolian-sai-chai.vercel.app/).
+
+Some users have already been created: `rosalia` and `weeknd`.
+
+To demo the alert functionality, set threshold on home page.
+
+To create a new user click "Log In", then "New User".
+
+<hr/>
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
