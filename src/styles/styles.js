@@ -27,3 +27,14 @@ export const globalStyles = (
       `} 
    />
 );
+
+export const modalStyles = {
+   position: 'absolute',
+   top: '50%',
+   left: '50%',
+   transform: 'translate(-50%, -50%)',
+   outline: 'none',
+   width: 250,
+   height: 250,
+   padding: '50px',
+};

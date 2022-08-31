@@ -21,16 +21,10 @@ import AQIGauge from 'components/AQIGauge';
 import useUser from 'stores/User';
 import useLocation from 'stores/Location';
 import useAQI from 'stores/AQI';
+import { modalStyles } from 'styles/styles';
 
 const consentModalStyles = {
-   position: 'absolute',
-   top: '50%',
-   left: '50%',
-   transform: 'translate(-50%, -50%)',
-   outline: 'none',
-   width: 250,
-   height: 250,
-   padding: '50px',
+   ...modalStyles,
    bgcolor: 'background.paper',
    display: 'flex',
    flexDirection: 'column',
