@@ -2,15 +2,16 @@
 
 Deployed to [aeolian-sai-chai.vercel.app](https://aeolian-sai-chai.vercel.app/).
 
-Some users have already been created: `rosalia` and `weeknd`.
+The app will request consent to use your location. If you don't consent you'll have to create a new user or log in.
+To create a new user, click the "Log In" button and then the "New User" button.
 
-To demo the alert functionality, set threshold on home page.
+Some demo users have already been created for you: `rosalia` and `weeknd`.
 
-To create a new user click "Log In", then "New User".
+To demo the alert functionality, set a new threshold lower than the current AQI on the home page while signed in.
 
-<hr/>
+___
 
-## Getting Started
+## For development:
 
 First, run the development server:
 
